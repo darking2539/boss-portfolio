@@ -5,7 +5,7 @@ import Button from '../../styles/GlobalComponents/Button';
 import { LeftSection } from './HeroStyles';
 
 const Hero = (props) => (
-  <>
+  <div style={{marginTop: "10%"}}>
     <Section row nopadding>
       <LeftSection>
         <SectionTitle main center>
@@ -18,7 +18,7 @@ const Hero = (props) => (
         <Button onClick={props.handleClick}>Learn More</Button>
       </LeftSection>
     </Section>
-  </>
+  </div>
 );
 
 export default Hero;

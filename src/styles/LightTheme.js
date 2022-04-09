@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-const GlobalStyles = createGlobalStyle`
+const LightStyles = createGlobalStyle`
   ${normalize};
 
   * {
@@ -17,8 +17,8 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: ${props => props.theme.fonts.main};
     font-size: 1.6rem;
-    background: ${props => props.theme.colors.background1};
-    color: ${props => props.theme.colors.primary1};
+    background: ${props => props.theme.colors.background2};
+    color: ${props => props.theme.colors.primary2};
     cursor: default;
 
   }
@@ -34,4 +34,4 @@ const GlobalStyles = createGlobalStyle`
 
 `;
 
-export default GlobalStyles;
+export default LightStyles;
