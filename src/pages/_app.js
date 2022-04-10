@@ -1,4 +1,4 @@
-import Theme from '../styles/theme';
+import Theme from '../styles/themes/theme';
 import { Provider } from 'react-redux';
 import store from './../redux/store';
 

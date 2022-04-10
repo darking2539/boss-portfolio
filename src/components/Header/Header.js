@@ -1,19 +1,34 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router'
 import React, { useState, useEffect } from 'react';
 import Icon from '@mdi/react';
-import { mdiWeatherNight, mdiWhiteBalanceSunny, mdiMenu } from '@mdi/js';
+import { mdiWeatherNight, mdiWhiteBalanceSunny, mdiMenu, mdiDesktopMac, mdiCellphone  } from '@mdi/js';
 import { DiCssdeck } from 'react-icons/di';
 import { Container, ContainerColor, NavLinkDark, NavLinkLight, SocialIconsDark, SocialIconsLight } from './HeaderStyles';
 import { useDispatch, useSelector } from 'react-redux'
 import { setThemes } from '../../redux/Theme/actions'
-import { Grid, Typography } from '@mui/material';
+import { Grid, Modal } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { makeStyles } from '@mui/styles';
-import { StickyNav } from 'react-js-stickynav'
-import 'react-js-stickynav/dist/index.css'
+import CloseIcon from '@mui/icons-material/Close';
+import { StickyNav } from './../../ModuleFuction/react-js-stickynav/dist'
+import './../../ModuleFuction/react-js-stickynav/dist/'
 
 
 const useStyles = makeStyles({
+  modalRoot: {
+    position: 'fixed',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: 0,
+    left: 0,
+    zIndex: 250,
+    backgroundColor: 'rgba(0,0,0,0.85)',
+    width: '100%',
+    height: '100%',
+    fontSize: '14px',
+  },
 
   popupIconsLight: {
     marginLeft: "20%",
@@ -40,14 +55,25 @@ const useStyles = makeStyles({
       position: "sticky",
       top: 0,
     }
-  }
+  },
+  closeBtnLayout: {
+    display: 'block',
+    position: 'fixed',
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: '20%',
+    right: '10%',
+    zIndex: 1,
+    width: '50px',
+    height: '50px',
+    cursor: 'pointer',
+    transform: "scale(2)"
+  },
 });
-
-
 
 const ThemeHeader = (props) => {
 
-  const { themeChangeHandle, themeIcon, themeMode, color } = props
+  const { themeChangeHandle, themeIcon, themeMode, color, router } = props
   const classes = useStyles();
 
   const NavLink = (text) => {
@@ -62,7 +88,7 @@ const ThemeHeader = (props) => {
     if (themeMode == "dark") {
       return <div className={classes.popupIconsDark} onClick={themeChangeHandle}>
         <Icon path={themeIcon}
-          size="2em"
+          size="3rem"
           horizontal
           vertical
           rotate={90}
@@ -80,25 +106,37 @@ const ThemeHeader = (props) => {
     }
   }
 
+  const CallToHome = () => {
+    router.push("/");
+  }
+
   return (
     <div>
 
       <Grid container spacing={2} style={{ padding: "1.5vh", marginTop: 2, marginLeft: "5vh", paddingRight: "5vh" }}>
 
-        <Grid item xs={2}>
+        <Grid item xs={2} onClick={CallToHome}>
           <Link href="/">
             <a style={{ display: 'flex', alignItems: 'center', color: color }}>
-              <DiCssdeck size="3rem" /> <span>Portfolio</span>
+             <Icon path={mdiDesktopMac} size="2em" style={{marginRight: 5}}/> <span>Portfolio</span>
             </a>
           </Link>
         </Grid>
 
         <Grid item xs={9}>
           <Grid container spacing={3} justifyContent="flex-end" alignItems="center">
+            <Grid item onClick={CallToHome}>
+
+              <Link href="/">
+                {NavLink("Home")}
+              </Link>
+
+            </Grid>
+
             <Grid item>
 
               <Link href="#projects">
-                {NavLink("Proect")}
+                {NavLink("Project")}
               </Link>
 
             </Grid>
@@ -133,7 +171,7 @@ const ThemeHeader = (props) => {
         </Grid>
 
         <Grid item xs={1}>
-          <Grid container justifyContent="center" alignItems="center" style={{ paddingRight: "5vh" }}>
+          <Grid container justifyContent="center" alignItems="center" style={{ paddingRight: "5vh", cursor: 'pointer' }}>
             <ChangeThemeIcons />
           </Grid>
         </Grid>
@@ -143,7 +181,7 @@ const ThemeHeader = (props) => {
   );
 };
 
-const ThemeHeadeMob = (props) => {
+const ThemeHeaderMob = (props) => {
 
   const { themeChangeHandle, themeIcon, themeMode, color, menuHandler } = props
   const classes = useStyles();
@@ -174,12 +212,12 @@ const ThemeHeadeMob = (props) => {
   return (
     <div>
 
-      <Grid container spacing={2} style={{ margin: 5, marginTop: 5, paddingRight:20 }}>
+      <Grid container spacing={2} style={{ margin: 5, marginTop: 5, paddingRight: 20 }}>
 
         <Grid item xs={8}>
           <Link href="/">
             <a style={{ display: 'flex', alignItems: 'center', color: color }}>
-              <DiCssdeck size="3rem" /> <span>Portfolio</span>
+            <Icon path={mdiCellphone} size="3rem" style={{marginRight: 5}}/> <span>Portfolio</span>
             </a>
           </Link>
         </Grid>
@@ -206,14 +244,90 @@ const ThemeHeadeMob = (props) => {
   );
 };
 
+const ModalMenu = (props) => {
+
+  const { handlerClose, themeMode, router } = props
+  const classes = useStyles();
+
+  const NavLink = (text) => {
+
+    if (themeMode == "dark") {
+      return <NavLinkDark>{text}</NavLinkDark>;
+    } else {
+      return <NavLinkDark>{text}</NavLinkDark>;
+    }
+  }
+
+  const CallToHome = () => {
+    router.push("/");
+    handlerClose();
+  }
+
+  return (
+    <div className={classes.modalRoot}>
+      <div className={classes.closeBtnLayout} onClick={handlerClose}>
+        <CloseIcon style={{ color: "rgba(255, 255, 255, 0.75)" }} />
+      </div>
+      <Grid item xs={9}>
+        <Grid container spacing={3} justifyContent="flex-end" alignItems="center" direction="column">
+          <Grid item>
+            <Link href="/" >
+                <div onClick={CallToHome}>
+                  {NavLink("Home")}
+                </div>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link href="#projects">
+              <div onClick={handlerClose}>
+                {NavLink("Project")}
+              </div>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link href="#tech">
+              <div onClick={handlerClose}>
+                {NavLink("Technologies")}
+              </div>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link href="#about">
+              <div onClick={handlerClose}>
+                {NavLink("Education")}
+              </div>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link href="#about">
+              <div onClick={handlerClose}>
+                {NavLink("WorkExperiences")}
+              </div>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link href="#about">
+              <div onClick={handlerClose}>
+                {NavLink("About")}
+              </div>
+            </Link>
+          </Grid>
+        </Grid>
+      </Grid>
+    </div>
+  )
+}
+
 function Header(props) {
-  
+
   const [themeIcon, setThemeIcon] = useState(mdiWeatherNight);
   const [color, setColor] = useState("white");
-  const [codeColor, setCodeColor] = useState("#F2FFFF");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [codeColor, setCodeColor] = useState("#0F1624");
   const dispatch = useDispatch();
   const themesSelector = useSelector(state => state.themesReducer);
   const matches = useMediaQuery("(min-width: 600px)");
+  const router = useRouter();
 
   const themeChangeHandle = () => {
     if (themeIcon == mdiWeatherNight) {
@@ -277,21 +391,27 @@ function Header(props) {
 
   const menuHandler = () => {
     console.log("hello")
+    setModalOpen(!modalOpen);
   }
 
+  const handleClose = () => {
+    setModalOpen(false);
+  };
+
+
   return (
-
     <div>
-
+      {modalOpen && modalOpen == true && <ModalMenu handlerClose={handleClose} themeMode={themesSelector.storeThemesDetail} router={router} />}
       {matches == true && (
         <div>
           {style()}
           <StickyNav length='50'>
-          <ThemeHeader
-            themeChangeHandle={themeChangeHandle}
-            themeIcon={themeIcon}
-            themeMode={themesSelector.storeThemesDetail}
-            color={color} />
+            <ThemeHeader
+              themeChangeHandle={themeChangeHandle}
+              themeIcon={themeIcon}
+              themeMode={themesSelector.storeThemesDetail}
+              color={color}
+              router={router} />
           </StickyNav>
         </div>
       )}
@@ -300,15 +420,16 @@ function Header(props) {
         <div>
           {styleMob()}
           <StickyNav length='50'>
-          <ThemeHeadeMob
-            themeChangeHandle={themeChangeHandle}
-            themeIcon={themeIcon}
-            themeMode={themesSelector.storeThemesDetail}
-            color={color}
-            menuHandler={menuHandler} />
+            <ThemeHeaderMob
+              themeChangeHandle={themeChangeHandle}
+              themeIcon={themeIcon}
+              themeMode={themesSelector.storeThemesDetail}
+              color={color}
+              menuHandler={menuHandler} />
           </StickyNav>
         </div>
       )}
+
 
     </div>
   )

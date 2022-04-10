@@ -7,9 +7,6 @@ import Timeline from '../components/TimeLine/TimeLine';
 import { Section } from '../styles/GlobalComponents';
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
-import { Container } from '../layout/LayoutStyles'
-
-
 
 const Home = () => {
   return (

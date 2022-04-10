@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import theme from "../themes/default";
+import theme from "./default";
 import DarkStyles from './DarkTheme';
 import LightStyles from './LightTheme';
 import { useSelector } from 'react-redux'
