@@ -326,7 +326,7 @@ function Header(props) {
   const [codeColor, setCodeColor] = useState("#0F1624");
   const dispatch = useDispatch();
   const themesSelector = useSelector(state => state.themesReducer);
-  const matches = useMediaQuery("(min-width: 600px)");
+  const matches = useMediaQuery("(min-width: 770px)");
   const router = useRouter();
 
   const themeChangeHandle = () => {
