@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { DiFirebase, DiReact, DiZend } from 'react-icons/di';
 import { Section, SectionDivider, SectionText, SectionTitle } from '../../styles/GlobalComponents';
 import { List, ListContainer, ListItem, ListParagraph, ListTitle } from './TechnologiesStyles';
+import { useSelector } from 'react-redux';
 
-const Technologies = () =>  (
+function Technologies() {
+  const themesSelector = useSelector(state => state.themesReducer);
+  const [darkTrue, setDarkTrue] = useState(true)
+
+  useEffect(() => {
+    if (themesSelector.storeThemesDetail == "dark") {
+      setDarkTrue(true);
+    } else {
+      setDarkTrue(false);
+    }
+  }, [themesSelector])
+  
+  return (
   <Section id="tech">
     <SectionDivider divider />
-    <SectionTitle>Technologies</SectionTitle>
-    <SectionText>
-      I've worked with a range a technologies in the web development world.
-      From Back-end To Design
+    <SectionTitle main dark={darkTrue}>Technologies</SectionTitle>
+    <SectionText main dark={darkTrue}>
+      I've worked with a Information technologies in the web development
+      with full loop development.
     </SectionText>
     <List>
       <ListItem>
@@ -17,10 +30,11 @@ const Technologies = () =>  (
           <DiReact size="3rem" />
         </picture>
         <ListContainer>
-          <ListTitle>Front-End</ListTitle>
-          <ListParagraph>
-            Experiece with <br />
-            React.js
+          <ListTitle main dark={darkTrue}>Front-End</ListTitle>
+          <ListParagraph main dark={darkTrue}>
+            React.js <br />
+            HTML5 CSS <br />
+            TypeScript
           </ListParagraph>
         </ListContainer>
       </ListItem>
@@ -29,10 +43,11 @@ const Technologies = () =>  (
           <DiFirebase size="3rem" />
         </picture>
         <ListContainer>
-          <ListTitle>Back-End</ListTitle>
-          <ListParagraph>
-            Experience with <br />
-            Node and Databases
+          <ListTitle main dark={darkTrue}>Back-End</ListTitle>
+          <ListParagraph main dark={darkTrue}>
+            Node.js <br />
+            Golang <br />
+            SQL & MongoDB
           </ListParagraph>
         </ListContainer>
       </ListItem>
@@ -41,10 +56,11 @@ const Technologies = () =>  (
           <DiZend size="3rem" />
         </picture>
         <ListContainer>
-          <ListTitle>UI/UX</ListTitle>
-          <ListParagraph>
-            Experience with <br />
-            tools like Figma
+          <ListTitle main dark={darkTrue}>Infrastructure</ListTitle>
+          <ListParagraph main dark={darkTrue}>
+            Docker Container <br />
+            K8S <br />
+            AWS
           </ListParagraph>
         </ListContainer>
       </ListItem>
@@ -52,5 +68,6 @@ const Technologies = () =>  (
     <SectionDivider colorAlt />
   </Section>
 );
+}
 
 export default Technologies;

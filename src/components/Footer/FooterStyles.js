@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const FooterWrapper = styled.section`
-	width: calc(100vw - 96px);
+  width: calc(100vw - 96px);
   max-width: 1040px;
   padding: 2rem 48px 40px;
   margin: 1rem auto;
@@ -17,7 +17,7 @@ export const FooterWrapper = styled.section`
 export const LinkItem = styled.a`
 	font-size: 18px;
 	line-height: 30px;
-	color: rgba(255, 255, 255, 0.75);
+	color: ${(props) => props.dark ? '#F2FFFF' : '#0F1624'};  
 	margin-bottom: 16px;
 	transition: .3s ease;
 	position: relative;
@@ -44,6 +44,7 @@ export const LinkItem = styled.a`
 `
 
 export const SocialIconsContainer = styled.div`
+
 max-width: 1040px;
 display: flex;
 justify-content: space-between;
@@ -82,7 +83,7 @@ export const CompanyContainer = styled.div`
 
 
 export const Slogan = styled.p`
-	color: rgba(255, 255, 255, 0.5);
+	color: ${(props) => props.dark ? '#F2FFFF' : '#0F1624'};  
 	min-width: 280px;
 	letter-spacing: 0.02em;
 	font-size: 18px;
@@ -93,7 +94,7 @@ export const Slogan = styled.p`
 		font-size: 16px;
 		line-height: 28px;
 	}
-
+fo
 	@media ${props => props.theme.breakpoints.sm}{
 		line-height: 22px;
 		font-size: 14px;
@@ -148,7 +149,7 @@ export const LinkTitle = styled.h4`
 	font-size: 12px;
 	line-height: 24px;
 	text-transform: uppercase;
-	color: rgba(255, 255, 255, 0.4);
+	color: ${(props) => props.dark ? '#F2FFFF' : '#0F1624'};
 	margin-bottom: 16px;
 
 	@media ${props => props.theme.breakpoints.sm} {

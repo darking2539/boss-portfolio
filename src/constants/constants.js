@@ -20,11 +20,9 @@ export const projects = [
 ];
 
 export const TimeLineData = [
-  { year: 2017, text: 'Started my journey', },
-  { year: 2018, text: 'Worked as a freelance developer', },
-  { year: 2019, text: 'Founded JavaScript Mastery', },
-  { year: 2020, text: 'Shared my projects with the world', },
-  { year: 2021, text: 'Started my own platform', },
-  { year: 2021, text: 'Started my own platform', },
-  { year: 2021, text: 'Started my own platform', },
+  { year: 2019, text: 'Graduated from Electrical Engineer', },
+  { year: 2019, text: 'Start position R&D Engineer in IoT field', },
+  { year: 2020, text: 'Complete Data Analytics Bootcamp at Skooldio', },
+  { year: 2020, text: 'Complete DevSecOps course at Skooldio', },
+  { year: 2022, text: 'Start position Full Stack Engineer', },
 ];

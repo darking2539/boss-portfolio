@@ -122,7 +122,7 @@ color: white;
 border-radius: 50px;
   padding: 8px;
 &:hover {
-    background-color: #212d45;
+    background-color: ${(props) => props.dark ? '#212d45' : '#CEDD79'};;
     transform: scale(1.2);
     cursor: pointer;
     transition: transform .5s ease-out;
