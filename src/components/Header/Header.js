@@ -114,7 +114,6 @@ const ThemeHeader = (props) => {
     <div>
 
       <Grid container spacing={2} style={{ padding: "1.5vh", marginTop: 2, marginLeft: "5vh", paddingRight: "5vh" }}>
-
         <Grid item xs={2} onClick={CallToHome}>
           <Link href="/">
             <a style={{ display: 'flex', alignItems: 'center', color: color }}>
@@ -126,46 +125,33 @@ const ThemeHeader = (props) => {
         <Grid item xs={9}>
           <Grid container spacing={3} justifyContent="flex-end" alignItems="center">
             <Grid item onClick={CallToHome}>
-
               <Link href="/">
                 {NavLink("Home")}
               </Link>
-
             </Grid>
 
             <Grid item>
-
               <Link href="#projects">
                 {NavLink("Project")}
               </Link>
-
             </Grid>
             <Grid item>
-
               <Link href="#tech">
                 {NavLink("Technologies")}
               </Link>
-
             </Grid>
-            <Grid item>
 
-              <Link href="#about">
-                {NavLink("Education")}
+
+            <Grid item>
+              <Link href="#certificates">
+                {NavLink("Certificates")}
               </Link>
             </Grid>
+
             <Grid item>
-
-              <Link href="#about">
-                {NavLink("WorkExperiences")}
-              </Link>
-
-            </Grid>
-            <Grid item>
-
               <Link href="#about">
                 {NavLink("About")}
               </Link>
-
             </Grid>
           </Grid>
         </Grid>
@@ -292,16 +278,9 @@ const ModalMenu = (props) => {
             </Link>
           </Grid>
           <Grid item>
-            <Link href="#about">
+            <Link href="#certificates">
               <div onClick={handlerClose}>
-                {NavLink("Education")}
-              </div>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link href="#about">
-              <div onClick={handlerClose}>
-                {NavLink("WorkExperiences")}
+                {NavLink("Certificates")}
               </div>
             </Link>
           </Grid>

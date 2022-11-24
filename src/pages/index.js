@@ -7,6 +7,7 @@ import Timeline from '../components/TimeLine/TimeLine';
 import { Section } from '../styles/GlobalComponents';
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
+import Certificate from '../components/Certificate/Certificate'
 
 const Home = () => {
   return (
@@ -14,12 +15,11 @@ const Home = () => {
       <Header />
       <Section grid>
         <Hero />
-        <BgAnimation />
       </Section>
       <Projects />
       <Technologies />
+      <Certificate />
       <Timeline />
-      {/* <Acomplishments /> */}
       <Footer />
     </div>
   );

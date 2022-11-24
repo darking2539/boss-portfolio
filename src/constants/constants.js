@@ -1,20 +1,21 @@
 export const projects = [
   {
     title: 'MERN Stack App',
-    description: "This website is a daily note editor and fetches data from open API, such as COVID-19, Spotify. The technology used in this project is express.js and MongoDB for backend, React.js with AdminLTE UI.",
-      image: '/images/1.png',
-      tags: ['Mongo', 'Express', 'React', 'Node'],
-    source: 'https://google.com',
-    visit: 'https://abosszz-app.herokuapp.com/',
+    description: `This website is a daily note editor and fetches data from open API, such as COVID-19, Spotify. 
+                  The technology used in this project is express.js and MongoDB for backend, React.js with AdminLTE UI.`,
+    image: '/images/MERN.jpeg',
+    tags: ['Mongo', 'Express', 'React', 'Node'],
+    source: 'https://github.com/darking2539/boss-app',
+    visit: 'https://abosszz-app.herokuapp.com',
     id: 0,
   },
   {
     title: 'Home Assistant',
-    description:"Home Assistant is an open source home automation that puts local control and privacy first. This project is implement smart home devices on site reference shown in video link.",
-    image: '/images/1.png',
+    description: "Home Assistant is an open source home automation that puts local control and privacy first. This project is implement smart home devices on site reference shown in video link.",
+    image: '/images/homeassistant.jpg',
     tags: ['Yaml', 'Home Assistant', 'Node Red'],
-    source: 'https://google.com',
-    visit: 'https://google.com',
+    source: 'https://www.home-assistant.io',
+    visit: 'https://youtu.be/WvRTia0PWak',
     id: 1,
   }
 ];

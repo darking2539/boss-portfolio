@@ -19,7 +19,7 @@ function Footer() {
 
   return (
     <FooterWrapper>
-      <LinkList>
+      <LinkList dark={darkTrue}>
         <LinkColumn>
           <LinkTitle dark={darkTrue}>Call</LinkTitle>
           <LinkItem dark={darkTrue} href="tel:0972246931">+66972246931</LinkItem>

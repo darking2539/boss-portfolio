@@ -29,7 +29,7 @@ const Timeline = () => {
 
     if (carouselRef.current) {
       const scrollLeft = Math.floor(carouselRef.current.scrollWidth * 0.7 * (i / TimeLineData.length));
-      
+
       scroll(carouselRef.current, scrollLeft);
     }
   }
@@ -54,10 +54,11 @@ const Timeline = () => {
 
   return (
     <Section id="about">
+      <SectionDivider divider />
       <SectionTitle dark={darkTrue}>About Me</SectionTitle>
       <SectionText dark={darkTrue}>
-      My name is Suphadet Vatjanajaroenrat (Boss). I graduated from Electrical Engineering at Chulalongkorn University. 
-      I am interested in new technology -robotics, IoT system, etc.
+        My name is Suphadet Vatjanajaroenrat (Boss). I graduated from Electrical Engineering at Chulalongkorn University.
+        I am interested in new technology -robotics, IoT system, etc.
       </SectionText>
       <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
         <>
@@ -93,10 +94,10 @@ const Timeline = () => {
                         x2="208"
                         y2="0.500295"
                         gradientUnits="userSpaceOnUse">
-                        <stop stop-color={`${darkTrue ? "white": "black"}`} />
+                        <stop stop-color={`${darkTrue ? "white" : "black"}`} />
                         <stop
                           offset="0.79478"
-                          stop-color={`${darkTrue ? "white": "black"}`}
+                          stop-color={`${darkTrue ? "white" : "black"}`}
                           stop-opacity="0"
                         />
                       </linearGradient>
@@ -113,7 +114,7 @@ const Timeline = () => {
         {TimeLineData.map((item, index) => {
           return (
             <CarouselButton
-              style={{blackGroundColor: "red"}}
+              style={{ blackGroundColor: "red" }}
               key={index}
               index={index}
               active={activeItem}
@@ -124,7 +125,6 @@ const Timeline = () => {
           );
         })}
       </CarouselButtons>
-      <SectionDivider />
     </Section>
   );
 };

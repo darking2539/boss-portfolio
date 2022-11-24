@@ -19,7 +19,7 @@ function Technologies() {
   return (
   <Section id="tech">
     <SectionDivider divider />
-    <SectionTitle main dark={darkTrue}>Technologies</SectionTitle>
+    <SectionTitle dark={darkTrue}>Technologies</SectionTitle>
     <SectionText main dark={darkTrue}>
       I've worked with a Information technologies in the web development
       with full loop development.
@@ -65,7 +65,6 @@ function Technologies() {
         </ListContainer>
       </ListItem>
     </List>
-    <SectionDivider colorAlt />
   </Section>
 );
 }

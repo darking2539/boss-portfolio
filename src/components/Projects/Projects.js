@@ -19,28 +19,28 @@ const Projects = () => {
 
   return (
     <Section id="projects">
-      <SectionDivider />
-      <SectionTitle main dark={darkTrue}>Projects</SectionTitle>
+      <SectionDivider divider />
+      <SectionTitle dark={darkTrue}>Projects</SectionTitle>
       <GridContainer>
         {projects.map((p, i) => {
           return (
             <BlogCard key={i} dark={darkTrue}>
               <Img src={p.image} />
               <TitleContent>
-                <HeaderThree title>{p.title}</HeaderThree>
+                <HeaderThree title dark={darkTrue}>{p.title}</HeaderThree>
                 <Hr />
               </TitleContent>
               <CardInfo className="card-info" dark={darkTrue}>{p.description}</CardInfo>
               <div>
                 <TagList>
                   {p.tags.map((t, i) => {
-                    return <Tag key={i}>{t}</Tag>;
+                    return <Tag dark={darkTrue} key={i}>{t}</Tag>;
                   })}
                 </TagList>
               </div>
               <UtilityList>
-                <ExternalLinks href={p.visit}>Code</ExternalLinks>
-                <ExternalLinks href={p.source}>Source</ExternalLinks>
+                <ExternalLinks href={p.visit}>Source</ExternalLinks>
+                <ExternalLinks href={p.source}>Code</ExternalLinks>
               </UtilityList>
             </BlogCard>
           );
