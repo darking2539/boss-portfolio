@@ -24,7 +24,12 @@ export const Slides = styled.div`
   overflow-y: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+  
+  //remove scrollbar
+  scrollbar-width: none;  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media ${props => props.theme.breakpoints.lg} {
     width: 650px;
@@ -57,5 +62,52 @@ export const Image = styled.img`
   }
   @media ${props => props.theme.breakpoints.sm}{
     width: 320px;
+  }
+`
+
+export const CarouselButtons = styled.div`
+  display: none;
+  justify-content: center;
+  display: flex;
+  visibility: visible;
+  margin-top: 5px;
+`
+
+export const CarouselButton = styled.button`
+  color: red;
+  box-sizing: border-box;
+  background: none;
+  padding: 4px;
+  border: none;
+  cursor: pointer;
+  margin-right: 4px;
+  opacity: ${(props) => props.active === props.index ? `1` : `.33`};
+  transform: ${(props) => props.active === props.index ? `scale(1.6)` : `scale(1)`};
+
+  &:focus {
+    outline: none;
+  }
+`
+
+export const CarouselButtonDot = styled.div`
+  background-color: ${(props) => props.dark ? 'white' : 'black'};
+  border-radius: 10px;
+  margin: auto;
+  width: 7px;
+  height: 7px;
+
+  @media ${props => props.theme.breakpoints.lg} {
+    width: 7px;
+    height: 7px;
+  }
+
+  @media ${props => props.theme.breakpoints.md} {
+    width: 5px;
+    height: 5px;
+  }
+
+  @media ${props => props.theme.breakpoints.sm} {
+    width: 3px;
+    height: 3px;
   }
 `

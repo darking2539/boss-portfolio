@@ -379,7 +379,7 @@ function Header(props) {
 
 
   return (
-    <div>
+    <div style={{display: "hidden"}}>
       {modalOpen && modalOpen == true && <ModalMenu handlerClose={handleClose} themeMode={themesSelector.storeThemesDetail} router={router} />}
       {matches == true && (
         <div>
